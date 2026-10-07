@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sources and Notes · Magnolia Regional</title>
+  <meta name="description" content="Sources, credits and licenses for the Magnolia Regional Medical Center concept landing page.">
+  <meta name="theme-color" content="#18352d">
+  <link rel="icon" type="image/webp" href="magnolia-logo.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=Work+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --forest:#27483d;--deep:#18352d;--sage:#aebbaa;--mist:#e7eee4;--ivory:#fffaf1;--cream:#f7f0e2;--blush:#f4e2e1;--lav:#ece5f2;--plum:#8347ae;--ink:#303d37;--muted:#5c675f;--line:#d8d8ca;--danger:#9b2c3f;--warn-bg:#fbf1d6;--warn-ink:#6b4e00;
+      --font-display:"DM Serif Display",Georgia,serif;--font-body:"Work Sans",system-ui,sans-serif;
+      --ease-out:cubic-bezier(.23,1,.32,1);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--ivory);color:var(--ink);font-family:var(--font-body);font-size:1rem;line-height:1.65}
+    a{color:var(--forest);text-underline-offset:4px}
+    a:hover{color:var(--plum)}
+    :focus-visible{outline:3px solid var(--plum);outline-offset:3px;border-radius:.375rem}
+    .skip-link{position:fixed;left:1rem;top:-5rem;z-index:10;background:var(--deep);color:#fff;padding:.75rem 1rem;border-radius:.5rem}
+    .skip-link:focus{top:1rem}
+
+    .site-bar{position:sticky;top:0;z-index:5;background:rgba(255,250,241,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+    .site-bar__inner{max-width:72rem;margin:0 auto;padding:.85rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    .brand{display:flex;align-items:center;gap:.75rem;text-decoration:none;color:var(--forest);font-weight:700;font-size:.95rem;line-height:1.2}
+    .brand img{width:2.75rem;height:2.75rem;border-radius:.75rem;object-fit:cover}
+    .back-link{display:inline-flex;align-items:center;gap:.4rem;min-height:2.75rem;padding:0 1.1rem;border:1px solid #9daf9f;border-radius:999px;font-weight:700;font-size:.9rem;text-decoration:none;color:var(--forest);background:var(--ivory);transition:background-color .2s ease,border-color .2s ease}
+    .back-link:hover{background:var(--mist);border-color:var(--forest);color:var(--forest)}
+    .back-link:active{transform:scale(.97)}
+
+    .hero{max-width:72rem;margin:0 auto;padding:3.5rem 1.25rem 2.5rem}
+    h1,h2,h3{font-family:var(--font-display);font-weight:400;color:var(--forest);margin:0}
+    h1{font-size:clamp(2.5rem,1.6rem + 3.4vw,4rem);line-height:1.05;letter-spacing:-.02em}
+    .lead{max-width:44rem;margin:1.25rem 0 0;font-size:1.125rem;line-height:1.7}
+    .meta-row{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.5rem}
+    .pill{display:inline-flex;align-items:center;gap:.4rem;padding:.35rem .85rem;border-radius:999px;background:var(--cream);border:1px solid var(--line);font-size:.875rem;font-weight:600;color:var(--forest)}
+
+    .layout{max-width:72rem;margin:0 auto;padding:0 1.25rem 5rem;display:grid;gap:2.5rem}
+    @media(min-width:960px){.layout{grid-template-columns:14rem minmax(0,1fr);gap:3.5rem}}
+    .toc{align-self:start}
+    @media(min-width:960px){.toc{position:sticky;top:6.5rem}}
+    .toc h2{font-family:var(--font-body);font-size:.875rem;font-weight:700;color:var(--muted);margin-bottom:.5rem}
+    .toc ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.35rem}
+    @media(min-width:960px){.toc ol{display:block}}
+    .toc a{display:flex;align-items:center;min-height:2.75rem;padding:0 .9rem;border-radius:.75rem;text-decoration:none;font-weight:600;font-size:.95rem;color:var(--forest);background:var(--cream)}
+    @media(min-width:960px){.toc a{background:none;padding:0 .75rem;margin-left:-.75rem}}
+    .toc a:hover{background:var(--mist)}
+
+    .source-section{scroll-margin-top:6rem}
+    .source-section + .source-section{margin-top:3.5rem}
+    .source-section h2{font-size:clamp(1.75rem,1.4rem + 1.2vw,2.25rem);line-height:1.1}
+    .section-note{margin:.6rem 0 0;color:var(--muted);max-width:44rem}
+    .entries{list-style:none;margin:1.5rem 0 0;padding:0;display:grid;gap:1rem}
+    .entry{display:grid;gap:1.1rem;padding:1.5rem;background:#fff;border:1px solid var(--line);border-radius:1.75rem 1.75rem 1.75rem .5rem}
+    .entry:nth-child(even){border-radius:1.75rem 1.75rem .5rem 1.75rem}
+    .entry:not(.entry--thumb){display:block}
+    @media(min-width:640px){.entry--thumb{grid-template-columns:6rem minmax(0,1fr)}}
+    .entry__thumb{width:6rem;height:6rem;border-radius:1rem 1rem 1rem .25rem;object-fit:cover;background:var(--cream)}
+    .entry h3{font-size:1.5rem;line-height:1.2}
+    .entry dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:.35rem 1rem;margin:.85rem 0 0;font-size:.95rem}
+    .entry dt{font-weight:700;color:var(--muted)}
+    .entry dd{margin:0;overflow-wrap:anywhere}
+    .citation{margin:1rem 0 0;padding:.85rem 1rem;border-radius:.875rem;background:var(--cream);font-size:.9rem;line-height:1.6;overflow-wrap:anywhere}
+    .citation__label{display:block;font-weight:700;color:var(--forest);font-size:.8rem;margin-bottom:.15rem}
+    .citation em{font-style:italic}
+
+    .entry--todo{background:var(--warn-bg);border:2px dashed #c9a640}
+    .todo-flag{display:inline-flex;align-items:center;gap:.35rem;padding:.2rem .7rem;border-radius:999px;background:#fff;color:var(--warn-ink);font-weight:700;font-size:.8rem;margin-bottom:.6rem}
+
+    .callout{margin-top:1.5rem;padding:1.5rem;border-radius:1.75rem 1.75rem 1.75rem .5rem;background:var(--lav)}
+    .callout p{margin:.5rem 0 0}
+    .callout ul{margin:.75rem 0 0;padding-left:1.25rem}
+
+    footer{background:var(--deep);color:var(--mist);padding:2rem 1.25rem}
+    footer p{max-width:72rem;margin:0 auto;font-size:.9rem}
+    footer a{color:var(--ivory)}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+  
+    .back-link__extra{display:inline}
+    @media(max-width:400px){
+      .site-bar__inner{padding:.75rem 1rem;gap:.5rem}
+      .brand{font-size:.85rem;gap:.55rem}
+      .brand img{width:2.4rem;height:2.4rem}
+      .back-link{padding:0 .85rem}
+      .back-link__extra{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+    }
+  
+    .pill--todo{background:#fbf1d6;border:2px dashed #c9a640;color:#6b4e00}
+    .rationale{margin-top:1.5rem;padding:1.5rem;background:#fff;border:1px solid var(--line);border-radius:1.75rem 1.75rem 1.75rem .5rem}
+    .rationale:nth-of-type(even){border-radius:1.75rem 1.75rem .5rem 1.75rem}
+    .rationale h3{font-size:1.5rem;line-height:1.2}
+    .rationale p{margin:.6rem 0 0;max-width:46rem}
+    .rationale ul{margin:.75rem 0 0;padding-left:1.2rem;max-width:46rem}
+    .rationale li+li{margin-top:.5rem}
+    .rationale__note{font-size:.9rem;color:var(--muted)}
+    .swatches{list-style:none;padding:0!important;display:grid;gap:.75rem;max-width:none!important}
+    @media(min-width:640px){.swatches{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    .swatch{display:flex;align-items:flex-start;gap:.85rem;margin:0!important;padding:.75rem;border-radius:1rem;background:var(--cream);font-size:.9rem;line-height:1.45}
+    .swatch__chip{flex:none;width:2.75rem;height:2.75rem;border-radius:999px;border:1px solid rgba(0,0,0,.12)}
+    .swatch code{font-size:.8rem;color:var(--muted)}
+    .swatch__from,.swatch__use{color:var(--ink)}
+  
+    /* Collapsible source groups */
+    .source-section + .source-section{margin-top:1rem}
+    .source-group{border:1px solid var(--line);border-radius:1.5rem 1.5rem 1.5rem .5rem;background:#fff}
+    .source-group > summary{display:flex;align-items:center;gap:.85rem;min-height:3.75rem;padding:1rem 1.25rem;cursor:pointer;list-style:none;border-radius:inherit;transition:background-color .2s ease}
+    .source-group > summary::-webkit-details-marker{display:none}
+    .source-group > summary:hover{background:var(--cream)}
+    .source-group > summary h2{flex:1;margin:0;font-size:clamp(1.35rem,1.15rem + .8vw,1.75rem);line-height:1.15}
+    .group-count{flex:none;padding:.25rem .7rem;border-radius:999px;background:var(--mist);color:var(--forest);font-size:.8125rem;font-weight:700}
+    .group-chevron{flex:none;width:.65rem;height:.65rem;border-right:2px solid var(--plum);border-bottom:2px solid var(--plum);transform:rotate(45deg) translate(-2px,-2px);transition:transform .2s ease}
+    .source-group[open] .group-chevron{transform:rotate(-135deg) translate(-2px,-2px)}
+    .source-group__body{padding:0 1.25rem 1.25rem}
+    .source-group__body > .section-note:first-child{margin-top:0}
+    .group-controls{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+    .control-btn{min-height:2.75rem;padding:0 1.1rem;border:1px solid #9daf9f;border-radius:999px;background:var(--ivory);color:var(--forest);font:inherit;font-weight:700;font-size:.9rem;cursor:pointer;transition:background-color .2s ease,border-color .2s ease}
+    .control-btn:hover{background:var(--mist);border-color:var(--forest)}
+    .control-btn:active{transform:scale(.97)}
+
+    /* Compact source entries */
+    .entries{gap:.6rem;margin-top:1rem}
+    .entry{gap:.85rem;padding:.9rem 1rem;border-radius:1.1rem;background:var(--ivory)}
+    .entry:nth-child(even){border-radius:1.1rem}
+    @media(min-width:640px){.entry--thumb{grid-template-columns:3.75rem minmax(0,1fr)}}
+    .entry__thumb{width:3.75rem;height:3.75rem;border-radius:.75rem .75rem .75rem .2rem}
+    .entry h3{font-family:var(--font-body)!important;font-weight:700!important;font-size:1rem!important;line-height:1.35}
+    .entry dl{margin-top:.35rem;font-size:.875rem;gap:.15rem .85rem}
+    .cite{margin-top:.4rem}
+    .cite summary{display:inline-flex;align-items:center;gap:.35rem;min-height:2.75rem;color:var(--plum);font-weight:700;font-size:.875rem;cursor:pointer;list-style:none}
+    .cite summary::-webkit-details-marker{display:none}
+    .cite summary:before{content:"+";font-size:1rem;line-height:1;width:1rem;text-align:center}
+    .cite[open] summary:before{content:"−"}
+    .cite summary:hover{text-decoration:underline;text-underline-offset:4px}
+    .cite p{margin:0;padding:.75rem .9rem;border-radius:.75rem;background:var(--cream);font-size:.875rem;line-height:1.55;overflow-wrap:anywhere}
+    .rationale{background:var(--ivory)}
+
+    .to-top{position:fixed;right:1rem;bottom:1rem;z-index:6;display:inline-flex;align-items:center;gap:.4rem;min-height:2.75rem;padding:0 1.1rem;border-radius:999px;background:var(--forest);color:#fff;font-weight:700;font-size:.9rem;text-decoration:none;box-shadow:0 10px 24px -10px rgba(24,53,45,.6)}
+    .to-top:hover{background:var(--deep);color:#fff}
+    .to-top[hidden]{display:none}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to sources</a>
+  <header class="site-bar">
+    <div class="site-bar__inner">
+      <a class="brand" href="standalone.html"><img src="magnolia-logo.webp" alt="" width="44" height="44">Magnolia Regional<br>Medical Center</a>
+      <a class="back-link" href="standalone.html"><span aria-hidden="true">←</span> Back<span class="back-link__extra"> to the site</span></a>
+    </div>
+  </header>
+
+  <section class="hero" aria-labelledby="page-title">
+    <h1 id="page-title" tabindex="-1">Sources and notes</h1>
+    <p class="lead">Why the Magnolia Regional brand looks the way it does, followed by everything on the site (landing page, Specialty care and Find a doctor pages) that came from somewhere else. Citations follow APA 7th edition.</p>
+    <div class="meta-row">
+      <span class="pill"><strong>Created by:</strong>&nbsp;Ashia Ware</span>
+      <span class="pill"><strong>Course:</strong>&nbsp;Web Graphics</span>
+      <span class="pill">Sources accessed October 6, 2026</span>
+    </div>
+    <div class="group-controls">
+      <button type="button" class="control-btn" id="expand-all">Expand all</button>
+      <button type="button" class="control-btn" id="collapse-all">Collapse all</button>
+    </div>
+  </section>
+
+  <div class="layout">
+    <nav class="toc" aria-labelledby="toc-title">
+      <h2 id="toc-title">On this page</h2>
+      <ol>
+        <li><a href="#brand-choices">Brand and design choices</a></li>
+        <li><a href="#photos">Pexels photos</a></li>
+        <li><a href="#unsplash">Unsplash photos</a></li>
+        <li><a href="#brand">Brand image</a></li>
+        <li><a href="#websites">Website references</a></li>
+        <li><a href="#fonts">Fonts</a></li>
+        <li><a href="#code">Icons and code</a></li>
+        <li><a href="#tools">Tools</a></li>
+        <li><a href="#fictional">Fictional content</a></li>
+      </ol>
+    </nav>
+
+    <main id="main">
+      <section id="brand-choices" class="source-section" aria-labelledby="brand-choices-title">
+        <details class="source-group" open>
+          <summary><h2 id="brand-choices-title">Brand and design choices</h2><span class="group-count">3 topics</span><span class="group-chevron" aria-hidden="true"></span></summary>
+          <div class="source-group__body">
+        <p class="section-note">Magnolia Regional Medical Center is a fictional hospital, so its whole identity was designed for this project. These are the reasons behind its three biggest choices.</p>
+
+        <article class="rationale">
+          <h3>Why a magnolia</h3>
+          <ul>
+            <li><strong>It feels local.</strong> The southern magnolia is one of the best-known trees of the American South, including Georgia, where the hospital is set. A regional hospital should feel like it belongs to its community.</li>
+            <li><strong>It matches the message.</strong> Magnolias are long-lived and come back into bloom year after year. Magnolias are also one of the oldest groups of flowering plants on Earth. That steadiness supports the tagline “Care, nurtured to last.”</li>
+            <li><strong>It feels welcoming, not clinical.</strong> Most hospital logos use a cross, a heart or an abstract shape. A flower gives the brand a softer, more personal face, which suits a place people often visit when they are worried.</li>
+          </ul>
+        </article>
+
+        <article class="rationale">
+          <h3>Why plant-inspired colors</h3>
+          <p>Every color in the palette comes from the magnolia itself, so the logo, photos and page all feel like one brand.</p>
+          <ul class="swatches"><li class="swatch"><span class="swatch__chip" style="background:#27483d" aria-hidden="true"></span><span><strong>Forest green</strong> <code>#27483d</code><br><span class="swatch__from">From: The magnolia’s glossy leaves</span><br><span class="swatch__use">Used for: Headings and main buttons</span></span></li><li class="swatch"><span class="swatch__chip" style="background:#18352d" aria-hidden="true"></span><span><strong>Deep forest</strong> <code>#18352d</code><br><span class="swatch__from">From: Shaded undersides of the leaves</span><br><span class="swatch__use">Used for: Top bar and footer</span></span></li><li class="swatch"><span class="swatch__chip" style="background:#fffaf1" aria-hidden="true"></span><span><strong>Ivory</strong> <code>#fffaf1</code><br><span class="swatch__from">From: The white magnolia bloom</span><br><span class="swatch__use">Used for: Page background</span></span></li><li class="swatch"><span class="swatch__chip" style="background:#f4e2e1" aria-hidden="true"></span><span><strong>Blush</strong> <code>#f4e2e1</code><br><span class="swatch__from">From: Soft pink petal edges</span><br><span class="swatch__use">Used for: Highlights and the patient story</span></span></li><li class="swatch"><span class="swatch__chip" style="background:#e7eee4" aria-hidden="true"></span><span><strong>Mint</strong> <code>#e7eee4</code><br><span class="swatch__from">From: New spring leaves</span><br><span class="swatch__use">Used for: Calm section backgrounds and “Open now” labels</span></span></li><li class="swatch"><span class="swatch__chip" style="background:#8347ae" aria-hidden="true"></span><span><strong>Plum</strong> <code>#8347ae</code><br><span class="swatch__from">From: Purple tulip magnolia buds</span><br><span class="swatch__use">Used for: Links and small accents</span></span></li><li class="swatch"><span class="swatch__chip" style="background:#9b2c3f" aria-hidden="true"></span><span><strong>Deep rose</strong> <code>#9b2c3f</code><br><span class="swatch__from">From: The darkest petal tones</span><br><span class="swatch__use">Used for: Saved for emergencies and errors</span></span></li></ul>
+          <ul>
+            <li><strong>Calm instead of cold.</strong> Greens and soft natural tones are often used in healthcare spaces because they feel calm and restorative. They also set Magnolia Regional apart from the usual hospital blue and white.</li>
+            <li><strong>Red is saved for emergencies.</strong> Because the rest of the palette is soft, the deep rose used for emergency information stands out right away.</li>
+            <li><strong>Readable for everyone.</strong> Every text color was checked against its background and meets the WCAG AA contrast guideline (at least 4.5 to 1), so the soft palette never makes text hard to read.</li>
+          </ul>
+        </article>
+
+        <article class="rationale">
+          <h3>Why this photo of the hospital</h3>
+          <ul>
+            <li><strong>The building grows plants.</strong> Its terraced balconies are filled with greenery, which echoes the plant-inspired palette and the idea of care that grows with you.</li>
+            <li><strong>It feels hopeful.</strong> Bright daylight and a clear blue sky make the hospital look open and optimistic rather than intimidating.</li>
+            <li><strong>It shows a connected campus.</strong> The covered walkway, with people crossing it, suggests a place that is easy to get around for patients and visitors.</li>
+            <li><strong>It lets the logo lead.</strong> The photo has no text built into it, so the site’s own logo and headline stay the main brand elements.</li>
+          </ul>
+          <p class="rationale__note">The photo shows a real building in Singapore, used here to represent the fictional hospital. It is credited in the Unsplash photos section below.</p>
+        </article>
+          </div>
+        </details>
+      </section>
+
+      <section id="photos" class="source-section" aria-labelledby="photos-title">
+        <details class="source-group">
+          <summary><h2 id="photos-title">Pexels photos</h2><span class="group-count">13 sources</span><span class="group-chevron" aria-hidden="true"></span></summary>
+          <div class="source-group__body">
+        <p class="section-note">Stock photos from Pexels. The Pexels license allows free use without attribution, but each photographer is credited here.</p>
+        <ol class="entries">
+          <li class="entry entry--thumb">
+            <img class="entry__thumb" src="https://images.pexels.com/photos/4266942/pexels-photo-4266942.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=200" alt="" width="96" height="96" loading="lazy">
+            <div>
+              <h3>A Doctor Showing a Tablet to a Patient</h3>
+              <dl><dt>Photographer</dt><dd>Cedric Fauntleroy</dd><dt>Source</dt><dd><a href="https://www.pexels.com/photo/a-doctor-showing-a-tablet-to-a-patient-4266942/">pexels.com/photo/4266942</a></dd><dt>License</dt><dd>Pexels License (free to use)</dd><dt>Used for</dt><dd>“Primary care” service card</dd></dl>
+              <details class="cite"><summary>APA citation</summary><p>Fauntleroy, C. (n.d.). <em>A doctor showing a tablet to a patient</em> [Photograph]. Pexels. https://www.pexels.com/photo/a-doctor-showing-a-tablet-to-a-patient-4266942/</p></details>
+            </div>
+          </li>
+          <li class="entry entry--thumb">
+            <img class="entry__thumb" src="https://images.pexels.com/photos/7578797/pexels-photo-7578797.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=200" alt="" width="96" height="96" loading="lazy">
+            <div>
+              <h3>A Doctor Sitting at a Desk</h3>
+              <dl><dt>Photographer</dt><dd>cottonbro studio</dd><dt>Source</dt><dd><a href="https://www.pexels.com/photo/a-doctor-sitting-at-a-desk-7578797/">pexels.com/photo/7578797</a></dd><dt>License</dt><dd>Pexels License (free to use)</dd><dt>Used for</dt><dd>“Specialty care” card</dd></dl>
+              <details class="cite"><summary>APA citation</summary><p>cottonbro studio. (n.d.). <em>A doctor sitting at a desk</em> [Photograph]. Pexels. https://www.pexels.com/photo/a-doctor-sitting-at-a-desk-7578797/</p></details>
+            </div>
+          </li>
+          <li class="entry entry--thumb">
+            <img class="entry__thumb" src="https://images.pexels.com/photos/11119416/pexels-photo-11119416.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=200" alt="" width="96" height="96" loading="lazy">
+            <div>
+              <h3>Magnetic Resonance Imaging Machine and Nurse</h3>
+              <dl><dt>Photographer</dt><dd>Max Mishin</dd><dt>Source</dt><dd><a href="https://www.pexels.com/photo/magnetic-resonance-imaging-machine-and-nurse-11119416/">pexels.com/photo/11119416</a></dd><dt>License</dt><dd>Pexels License (free to use)</dd><dt>Used for</dt><dd>“Diagnostic imaging” service card</dd></dl>
+              <details class="cite"><summary>APA citation</summary><p>Mishin, M. (n.d.). <em>Magnetic resonance imaging machine and nurse</em> [Photograph]. Pexels. https://www.pexels.com/photo/magnetic-resonance-imaging-machine-and-nurse-11119416/</p></details>
+            </div>
+          </li>
+          <li class="entry entry--thumb">
+            <img class="entry__thumb" src="https://images.pexels.com/photos/5793700/pexels-photo-5793700.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=200" alt="" width="96" height="96" loading="lazy">
+            <div>
+              <h3>Woman in White Long Sleeve Shirt Stretching Woman’s Arm</h3>
+              <dl><dt>Photographer</dt><dd>Yan Krukau</dd><dt>Source</dt><dd><a href="https://www.pexels.com/photo/woman-in-white-long-sleeve-shirt-stretching-woman-s-arm-5793700/">pexels.com/photo/5793700</a></dd><dt>License</dt><dd>Pexels License (free to use)</dd><dt>Used for</dt><dd>“Rehabilitation” section of the Specialties page</dd></dl>
+              <details class="cite"><summary>APA citation</summary><p>Krukau, Y. (n.d.). <em>Woman in white long sleeve shirt stretching woman’s arm</em> [Photograph]. Pexels. https://www.pexels.com/photo/woman-in-white-long-sleeve-shirt-stretching-woman-s-arm-5793700/</p></details>
+            </div>
+          </li>
+          <li class="entry entry--thumb">
+            <img class="entry__thumb" src="https://images.pexels.com/photos/17504514/pexels-photo-17504514.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=200" alt="" width="96" height="96" loading="lazy">
+            <div>
+              <h3>White Magnolia Flower</h3>
+              <dl><dt>Photographer</dt><dd>Feyza Daştan</dd><dt>Source</dt><dd><a href="https://www.pexels.com/photo/white-magnolia-flower-17504514/">pexels.com/photo/17504514</a></dd><dt>License</dt><dd>Pexels License (free to use)</dd><dt>Used for</dt><dd>“The magnolia approach” about section</dd></dl>
+              <details class="cite"><summary>APA citation</summary><p>Daştan, F. (n.d.). <em>White magnolia flower</em> [Photograph]. Pexels. https://www.pexels.com/photo/white-magnolia-flower-17504514/</p></details>
+            </div>
+          </li>
+          <li class="entry entry--thumb">
+            <img class="entry__thumb" src="https://images.pexels.com/photos/6519920/pexels-photo-6519920.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=200" alt="" width="96" height="96" loading="lazy">
+            <div>
+              <h3>Paramedics Pushing a Stretcher</h3>
+              <dl><dt>Photographer</dt><dd>RDNE Stock project</dd><dt>Source</dt><dd><a href="https://www.pexels.com/photo/paramedics-pushing-a-stretcher-6519920/">pexels.com/photo/6519920</a></dd><dt>License</dt><dd>Pexels License (free to use)</dd><dt>Used for</dt><dd>Featured “Emergency care” card</dd></dl>
+              <details class="cite"><summary>APA citation</summary><p>RDNE Stock project. (n.d.). <em>Paramedics pushing a stretcher</em> [Photograph]. Pexels. https://www.pexels.com/photo/paramedics-pushing-a-stretcher-6519920/</p></details>
+            </div>
+          </li>
+          <li class="entry entry--thumb">
+            <img class="entry__thumb" src="https://images.pexels.com/photos/39192345/pexels-photo-39192345.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=200" alt="" width="96" height="96" loading="lazy">
+            <div>
+              <h3>Doctor Measuring Patient’s Blood Pressure in Office</h3>
+              <dl><dt>Photographer</dt><dd>Vitaly Gariev</dd><dt>Source</dt><dd><a href="https://www.pexels.com/photo/doctor-measuring-patient-s-blood-pressure-in-office-39192345/">pexels.com/photo/39192345</a></dd><dt>License</dt><dd>Pexels License (free to use)</dd><dt>Used for</dt><dd>“Heart and vascular” section of the Specialties page</dd></dl>
+              <details class="cite"><summary>APA citation</summary><p>Gariev, V. (n.d.). <em>Doctor measuring patient’s blood pressure in office</em> [Photograph]. Pexels. https://www.pexels.com/photo/doctor-measuring-patient-s-blood-pressure-in-office-39192345/</p></details>
+            </div>
+          </li>
+          <li class="entry entry--thumb">
+            <img class="entry__thumb" src="https://images.pexels.com/photos/39192357/pexels-photo-39192357.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=200" alt="" width="96" height="96" loading="lazy">
+            <div>
+              <h3>Doctor Explains Brain X-ray to Patient in Office</h3>
+              <dl><dt>Photographer</dt><dd>Vitaly Gariev</dd><dt>Source</dt><dd><a href="https://www.pexels.com/photo/doctor-explains-brain-x-ray-to-patient-in-office-39192357/">pexels.com/photo/39192357</a></dd><dt>License</dt><dd>Pexels License (free to use)</dd><dt>Used for</dt><dd>“Neurology” section of the Specialties page</dd></dl>
+              <details class="cite"><summary>APA citation</summary><p>Gariev, V. (n.d.). <em>Doctor explains brain x-ray to patient in office</em> [Photograph]. Pexels. https://www.pexels.com/photo/doctor-explains-brain-x-ray-to-patient-in-office-39192357/</p></details>
+            </div>
+          </li>
+          <li class="entry entry--thumb">
+            <img class="entry__thumb" src="https://images.pexels.com/photos/6010860/pexels-photo-6010860.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=200" alt="" width="96" height="96" loading="lazy">
+            <div>
+              <h3>Doctor Showing Diagnosis to a Patient</h3>
+              <dl><dt>Photographer</dt><dd>Tima Miroshnichenko</dd><dt>Source</dt><dd><a href="https://www.pexels.com/photo/doctor-showing-diagnosis-to-a-patient-6010860/">pexels.com/photo/6010860</a></dd><dt>License</dt><dd>Pexels License (free to use)</dd><dt>Used for</dt><dd>“Cancer care” section of the Specialties page</dd></dl>
+              <details class="cite"><summary>APA citation</summary><p>Miroshnichenko, T. (n.d.). <em>Doctor showing diagnosis to a patient</em> [Photograph]. Pexels. https://www.pexels.com/photo/doctor-showing-diagnosis-to-a-patient-6010860/</p></details>
+            </div>
+          </li>
+          <li class="entry entry--thumb">
+            <img class="entry__thumb" src="https://images.pexels.com/photos/4769122/pexels-photo-4769122.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=200" alt="" width="96" height="96" loading="lazy">
+            <div>
+              <h3>Nurse and Surgeon in Operating Room</h3>
+              <dl><dt>Photographer</dt><dd>Anna Shvets</dd><dt>Source</dt><dd><a href="https://www.pexels.com/photo/nurse-and-surgeon-in-operating-room-4769122/">pexels.com/photo/4769122</a></dd><dt>License</dt><dd>Pexels License (free to use)</dd><dt>Used for</dt><dd>“Surgery” section of the Specialties page</dd></dl>
+              <details class="cite"><summary>APA citation</summary><p>Shvets, A. (n.d.). <em>Nurse and surgeon in operating room</em> [Photograph]. Pexels. https://www.pexels.com/photo/nurse-and-surgeon-in-operating-room-4769122/</p></details>
+            </div>
+          </li>
+          <li class="entry entry--thumb">
+            <img class="entry__thumb" src="https://images.pexels.com/photos/7089037/pexels-photo-7089037.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=200" alt="" width="96" height="96" loading="lazy">
+            <div>
+              <h3>Pregnant Woman Consulting with Doctor in Clinic</h3>
+              <dl><dt>Photographer</dt><dd>MART PRODUCTION</dd><dt>Source</dt><dd><a href="https://www.pexels.com/photo/people-woman-sitting-technology-7089037/">pexels.com/photo/7089037</a></dd><dt>License</dt><dd>Pexels License (free to use)</dd><dt>Used for</dt><dd>“Women’s health and maternity” section of the Specialties page</dd></dl>
+              <details class="cite"><summary>APA citation</summary><p>MART PRODUCTION. (n.d.). <em>Pregnant woman consulting with doctor in clinic</em> [Photograph]. Pexels. https://www.pexels.com/photo/people-woman-sitting-technology-7089037/</p></details>
+            </div>
+          </li>
+          <li class="entry entry--thumb">
+            <img class="entry__thumb" src="https://images.pexels.com/photos/5998457/pexels-photo-5998457.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=200" alt="" width="96" height="96" loading="lazy">
+            <div>
+              <h3>A Doctor Examining a Child Patient</h3>
+              <dl><dt>Photographer</dt><dd>Pavel Danilyuk</dd><dt>Source</dt><dd><a href="https://www.pexels.com/photo/a-doctor-examining-a-child-patient-5998457/">pexels.com/photo/5998457</a></dd><dt>License</dt><dd>Pexels License (free to use)</dd><dt>Used for</dt><dd>“Pediatrics” section of the Specialties page</dd></dl>
+              <details class="cite"><summary>APA citation</summary><p>Danilyuk, P. (n.d.). <em>A doctor examining a child patient</em> [Photograph]. Pexels. https://www.pexels.com/photo/a-doctor-examining-a-child-patient-5998457/</p></details>
+            </div>
+          </li>
+          <li class="entry entry--thumb">
+            <img class="entry__thumb" src="https://images.pexels.com/photos/8460349/pexels-photo-8460349.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=200" alt="" width="96" height="96" loading="lazy">
+            <div>
+              <h3>Nurse Wiping the Arm of a Patient</h3>
+              <dl><dt>Photographer</dt><dd>Los Muertos Crew</dd><dt>Source</dt><dd><a href="https://www.pexels.com/photo/nurse-wiping-the-arm-of-a-patient-8460349/">pexels.com/photo/8460349</a></dd><dt>License</dt><dd>Pexels License (free to use)</dd><dt>Used for</dt><dd>“Lab services” section of the Specialties page</dd></dl>
+              <details class="cite"><summary>APA citation</summary><p>Los Muertos Crew. (n.d.). <em>Nurse wiping the arm of a patient</em> [Photograph]. Pexels. https://www.pexels.com/photo/nurse-wiping-the-arm-of-a-patient-8460349/</p></details>
+            </div>
+          </li>
+        </ol>
+          </div>
+        </details>
+      </section>
+
+      <section id="unsplash" class="source-section" aria-labelledby="unsplash-title">
+        <details class="source-group">
+          <summary><h2 id="unsplash-title">Unsplash photos</h2><span class="group-count">10 sources</span><span class="group-chevron" aria-hidden="true"></span></summary>
+          <div class="source-group__body">
+        <p class="section-note">The hospital building photo and the doctor portraits come from Unsplash, whose license allows free use. The people pictured are models, not the fictional doctors named on the site.</p>
+        <ol class="entries">
+          <li class="entry entry--thumb">
+            <img class="entry__thumb" src="https://images.unsplash.com/photo-1495202337139-e865ed70fcd4?auto=format&amp;fit=crop&amp;crop=faces&amp;w=200&amp;h=200&amp;q=70" alt="" width="96" height="96" loading="lazy">
+            <div>
+              <h3>Low angle photography of famous building</h3>
+              <dl><dt>Photographer</dt><dd>Esaias Tan</dd><dt>Source</dt><dd><a href="https://unsplash.com/photos/low-angle-photography-of-famous-building-JeWyWRMH4rQ">unsplash.com/photos/JeWyWRMH4rQ</a></dd><dt>License</dt><dd>Unsplash License (free to use)</dd><dt>Used for</dt><dd>Main hero image (a real building in Singapore, used to represent the fictional hospital)</dd></dl>
+              <details class="cite"><summary>APA citation</summary><p>Tan, E. (n.d.). <em>Low angle photography of famous building</em> [Photograph]. Unsplash. https://unsplash.com/photos/low-angle-photography-of-famous-building-JeWyWRMH4rQ</p></details>
+            </div>
+          </li>
+          <li class="entry entry--thumb">
+            <img class="entry__thumb" src="https://images.unsplash.com/photo-1678695972687-033fa0bdbac9?auto=format&amp;fit=crop&amp;crop=faces&amp;w=200&amp;h=200&amp;q=70" alt="" width="96" height="96" loading="lazy">
+            <div>
+              <h3>A woman wearing a white coat and a stethoscope</h3>
+              <dl><dt>Photographer</dt><dd>Ato Aikins</dd><dt>Source</dt><dd><a href="https://unsplash.com/photos/a-woman-wearing-a-white-coat-and-a-stethoscope-TPT4pevJEmQ">unsplash.com/photos/TPT4pevJEmQ</a></dd><dt>License</dt><dd>Unsplash License (free to use)</dd><dt>Used for</dt><dd>Portrait for “Dr. Amara Okafor”</dd></dl>
+              <details class="cite"><summary>APA citation</summary><p>Aikins, A. (n.d.). <em>A woman wearing a white coat and a stethoscope</em> [Photograph]. Unsplash. https://unsplash.com/photos/a-woman-wearing-a-white-coat-and-a-stethoscope-TPT4pevJEmQ</p></details>
+            </div>
+          </li>
+          <li class="entry entry--thumb">
+            <img class="entry__thumb" src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&amp;fit=crop&amp;crop=faces&amp;w=200&amp;h=200&amp;q=70" alt="" width="96" height="96" loading="lazy">
+            <div>
+              <h3>Man in blue medical scrubs</h3>
+              <dl><dt>Photographer</dt><dd>Bruno Rodrigues</dd><dt>Source</dt><dd><a href="https://unsplash.com/photos/man-in-blue-medical-scrubs-279xIHymPYY">unsplash.com/photos/279xIHymPYY</a></dd><dt>License</dt><dd>Unsplash License (free to use)</dd><dt>Used for</dt><dd>Portrait for “Dr. Daniel Reyes”</dd></dl>
+              <details class="cite"><summary>APA citation</summary><p>Rodrigues, B. (n.d.). <em>Man in blue medical scrubs</em> [Photograph]. Unsplash. https://unsplash.com/photos/man-in-blue-medical-scrubs-279xIHymPYY</p></details>
+            </div>
+          </li>
+          <li class="entry entry--thumb">
+            <img class="entry__thumb" src="https://images.unsplash.com/photo-1729162128021-f37dca3ff30d?auto=format&amp;fit=crop&amp;crop=faces&amp;w=200&amp;h=200&amp;q=70" alt="" width="96" height="96" loading="lazy">
+            <div>
+              <h3>A man in a white lab coat smiles at the camera</h3>
+              <dl><dt>Photographer</dt><dd>Vidak</dd><dt>Source</dt><dd><a href="https://unsplash.com/photos/a-man-in-a-white-lab-coat-smiles-at-the-camera-5vfc-1KQLtE">unsplash.com/photos/5vfc-1KQLtE</a></dd><dt>License</dt><dd>Unsplash License (free to use)</dd><dt>Used for</dt><dd>Portrait for “Dr. Mateo Silva”</dd></dl>
+              <details class="cite"><summary>APA citation</summary><p>Vidak. (n.d.). <em>A man in a white lab coat smiles at the camera</em> [Photograph]. Unsplash. https://unsplash.com/photos/a-man-in-a-white-lab-coat-smiles-at-the-camera-5vfc-1KQLtE</p></details>
+            </div>
+          </li>
+          <li class="entry entry--thumb">
+            <img class="entry__thumb" src="https://images.unsplash.com/photo-1706565029539-d09af5896340?auto=format&amp;fit=crop&amp;crop=faces&amp;w=200&amp;h=200&amp;q=70" alt="" width="96" height="96" loading="lazy">
+            <div>
+              <h3>A woman wearing a white jacket and black shirt</h3>
+              <dl><dt>Photographer</dt><dd>Jonathan Borba</dd><dt>Source</dt><dd><a href="https://unsplash.com/photos/a-woman-wearing-a-white-jacket-and-black-shirt-uBb_ZDIrquc">unsplash.com/photos/uBb_ZDIrquc</a></dd><dt>License</dt><dd>Unsplash License (free to use)</dd><dt>Used for</dt><dd>Portrait for “Dr. Leila Haddad”</dd></dl>
+              <details class="cite"><summary>APA citation</summary><p>Borba, J. (n.d.). <em>A woman wearing a white jacket and black shirt</em> [Photograph]. Unsplash. https://unsplash.com/photos/a-woman-wearing-a-white-jacket-and-black-shirt-uBb_ZDIrquc</p></details>
+            </div>
+          </li>
+          <li class="entry entry--thumb">
+            <img class="entry__thumb" src="https://images.unsplash.com/photo-1736289173074-df6009da27c9?auto=format&amp;fit=crop&amp;crop=faces&amp;w=200&amp;h=200&amp;q=70" alt="" width="96" height="96" loading="lazy">
+            <div>
+              <h3>A woman in a white coat is posing for a picture</h3>
+              <dl><dt>Photographer</dt><dd>Eros Reyes Cabrera</dd><dt>Source</dt><dd><a href="https://unsplash.com/photos/a-woman-in-a-white-coat-is-posing-for-a-picture-RtakOBTTdvY">unsplash.com/photos/RtakOBTTdvY</a></dd><dt>License</dt><dd>Unsplash License (free to use)</dd><dt>Used for</dt><dd>Portrait for “Dr. Sofia Marín”</dd></dl>
+              <details class="cite"><summary>APA citation</summary><p>Reyes Cabrera, E. (n.d.). <em>A woman in a white coat is posing for a picture</em> [Photograph]. Unsplash. https://unsplash.com/photos/a-woman-in-a-white-coat-is-posing-for-a-picture-RtakOBTTdvY</p></details>
+            </div>
+          </li>
+          <li class="entry entry--thumb">
+            <img class="entry__thumb" src="https://images.unsplash.com/photo-1623854767648-e7bb8009f0db?auto=format&amp;fit=crop&amp;crop=faces&amp;w=200&amp;h=200&amp;q=70" alt="" width="96" height="96" loading="lazy">
+            <div>
+              <h3>Smiling woman in white long sleeve shirt with stethoscope on her neck</h3>
+              <dl><dt>Photographer</dt><dd>Siednji Leon</dd><dt>Source</dt><dd><a href="https://unsplash.com/photos/smiling-woman-in-white-long-sleeve-shirt-with-stethoscope-on-her-neck-lnlSIsiSjjc">unsplash.com/photos/lnlSIsiSjjc</a></dd><dt>License</dt><dd>Unsplash License (free to use)</dd><dt>Used for</dt><dd>Portrait for “Dr. Rosa Delgado”</dd></dl>
+              <details class="cite"><summary>APA citation</summary><p>Leon, S. (n.d.). <em>Smiling woman in white long sleeve shirt with stethoscope on her neck</em> [Photograph]. Unsplash. https://unsplash.com/photos/smiling-woman-in-white-long-sleeve-shirt-with-stethoscope-on-her-neck-lnlSIsiSjjc</p></details>
+            </div>
+          </li>
+          <li class="entry entry--thumb">
+            <img class="entry__thumb" src="https://images.unsplash.com/photo-1757125736482-328a3cdd9743?auto=format&amp;fit=crop&amp;crop=faces&amp;w=200&amp;h=200&amp;q=70" alt="" width="96" height="96" loading="lazy">
+            <div>
+              <h3>A woman in a lab coat smiles outdoors</h3>
+              <dl><dt>Photographer</dt><dd>Ike Ellyana</dd><dt>Source</dt><dd><a href="https://unsplash.com/photos/a-woman-in-a-lab-coat-smiles-outdoors-2G73aoMR-Go">unsplash.com/photos/2G73aoMR-Go</a></dd><dt>License</dt><dd>Unsplash License (free to use)</dd><dt>Used for</dt><dd>Portrait for “Dr. Grace Halim”</dd></dl>
+              <details class="cite"><summary>APA citation</summary><p>Ellyana, I. (n.d.). <em>A woman in a lab coat smiles outdoors</em> [Photograph]. Unsplash. https://unsplash.com/photos/a-woman-in-a-lab-coat-smiles-outdoors-2G73aoMR-Go</p></details>
+            </div>
+          </li>
+          <li class="entry entry--thumb">
+            <img class="entry__thumb" src="https://images.unsplash.com/photo-1637059824899-a441006a6875?auto=format&amp;fit=crop&amp;crop=faces&amp;w=200&amp;h=200&amp;q=70" alt="" width="96" height="96" loading="lazy">
+            <div>
+              <h3>A man with a stethoscope standing with his arms crossed</h3>
+              <dl><dt>Photographer</dt><dd>vaibhav vivian</dd><dt>Source</dt><dd><a href="https://unsplash.com/photos/a-man-with-a-stethoscope-standing-with-his-arms-crossed-3HIroMoyre8">unsplash.com/photos/3HIroMoyre8</a></dd><dt>License</dt><dd>Unsplash License (free to use)</dd><dt>Used for</dt><dd>Portrait for “Dr. Arjun Mehta”</dd></dl>
+              <details class="cite"><summary>APA citation</summary><p>vivian, v. (n.d.). <em>A man with a stethoscope standing with his arms crossed</em> [Photograph]. Unsplash. https://unsplash.com/photos/a-man-with-a-stethoscope-standing-with-his-arms-crossed-3HIroMoyre8</p></details>
+            </div>
+          </li>
+          <li class="entry entry--thumb">
+            <img class="entry__thumb" src="https://images.unsplash.com/photo-1666887360369-1901f341fdad?auto=format&amp;fit=crop&amp;crop=faces&amp;w=200&amp;h=200&amp;q=70" alt="" width="96" height="96" loading="lazy">
+            <div>
+              <h3>A man wearing a white lab coat</h3>
+              <dl><dt>Photographer</dt><dd>Nappy</dd><dt>Source</dt><dd><a href="https://unsplash.com/photos/a-man-wearing-a-white-lab-coat-K6cnVC_0RuY">unsplash.com/photos/K6cnVC_0RuY</a></dd><dt>License</dt><dd>Unsplash License (free to use)</dd><dt>Used for</dt><dd>Portrait for “Dr. Samuel Owusu”</dd></dl>
+              <details class="cite"><summary>APA citation</summary><p>Nappy. (n.d.). <em>A man wearing a white lab coat</em> [Photograph]. Unsplash. https://unsplash.com/photos/a-man-wearing-a-white-lab-coat-K6cnVC_0RuY</p></details>
+            </div>
+          </li>
+        </ol>
+          </div>
+        </details>
+      </section>
+
+      <section id="brand" class="source-section" aria-labelledby="brand-title">
+        <details class="source-group">
+          <summary><h2 id="brand-title">Brand image</h2><span class="group-count">1 source</span><span class="group-chevron" aria-hidden="true"></span></summary>
+          <div class="source-group__body">
+        <p class="section-note">The logo was generated by the site author using ChatGPT, an AI tool made by OpenAI.</p>
+        <ol class="entries">
+          <li class="entry entry--thumb">
+            <img class="entry__thumb" src="magnolia-logo.webp" alt="" width="96" height="96" loading="lazy">
+            <div>
+              <h3>Magnolia Regional logo</h3>
+              <dl><dt>Created with</dt><dd>ChatGPT (OpenAI), AI image generation, prompted by the site author</dd><dt>Used for</dt><dd>Header and footer logo, browser-tab icon, background watermarks</dd></dl>
+              <details class="cite"><summary>APA citation</summary><p>OpenAI. (2026). <em>ChatGPT</em> [Large language model]. https://chatgpt.com</p></details>
+            </div>
+          </li>
+        </ol>
+          </div>
+        </details>
+      </section>
+
+      <section id="websites" class="source-section" aria-labelledby="websites-title">
+        <details class="source-group">
+          <summary><h2 id="websites-title">Website references</h2><span class="group-count">1 source</span><span class="group-chevron" aria-hidden="true"></span></summary>
+          <div class="source-group__body">
+        <p class="section-note">Websites used as source material.</p>
+        <ol class="entries">
+          <li class="entry">
+            <h3>Wellstar Cobb Medical Center</h3>
+            <dl><dt>Publisher</dt><dd>Wellstar Health System</dd><dt>Source</dt><dd><a href="https://www.wellstar.org/locations/hospital/cobb-medical-center">wellstar.org/locations/hospital/cobb-medical-center</a></dd><dt>Used for</dt><dd>Source material: a real Georgia hospital page used as the model for what a hospital landing page includes, such as services, an emergency department, visitor information, events, volunteering and careers</dd></dl>
+            <details class="cite"><summary>APA citation</summary><p>Wellstar Health System. (n.d.). <em>Wellstar Cobb Medical Center</em>. Retrieved October 6, 2026, from https://www.wellstar.org/locations/hospital/cobb-medical-center</p></details>
+          </li>
+        </ol>
+          </div>
+        </details>
+      </section>
+
+      <section id="fonts" class="source-section" aria-labelledby="fonts-title">
+        <details class="source-group">
+          <summary><h2 id="fonts-title">Fonts</h2><span class="group-count">2 sources</span><span class="group-chevron" aria-hidden="true"></span></summary>
+          <div class="source-group__body">
+        <p class="section-note">Both fonts are served by Google Fonts under the SIL Open Font License 1.1.</p>
+        <ol class="entries">
+          <li class="entry">
+            <h3 style="font-family:var(--font-display)">DM Serif Display</h3>
+            <dl><dt>Designer</dt><dd>Colophon Foundry</dd><dt>Source</dt><dd><a href="https://fonts.google.com/specimen/DM+Serif+Display">fonts.google.com/specimen/DM+Serif+Display</a></dd><dt>License</dt><dd>SIL Open Font License 1.1</dd><dt>Used for</dt><dd>Headings</dd></dl>
+            <details class="cite"><summary>APA citation</summary><p>Colophon Foundry. (n.d.). <em>DM Serif Display</em> [Typeface]. Google Fonts. https://fonts.google.com/specimen/DM+Serif+Display</p></details>
+          </li>
+          <li class="entry">
+            <h3 style="font-family:var(--font-body);font-weight:700;font-size:1.35rem">Work Sans</h3>
+            <dl><dt>Designer</dt><dd>Wei Huang</dd><dt>Source</dt><dd><a href="https://fonts.google.com/specimen/Work+Sans">fonts.google.com/specimen/Work+Sans</a></dd><dt>License</dt><dd>SIL Open Font License 1.1</dd><dt>Used for</dt><dd>Body text, buttons and labels</dd></dl>
+            <details class="cite"><summary>APA citation</summary><p>Huang, W. (n.d.). <em>Work Sans</em> [Typeface]. Google Fonts. https://fonts.google.com/specimen/Work+Sans</p></details>
+          </li>
+        </ol>
+          </div>
+        </details>
+      </section>
+
+      <section id="code" class="source-section" aria-labelledby="code-title">
+        <details class="source-group">
+          <summary><h2 id="code-title">Icons and code</h2><span class="group-count">3 sources</span><span class="group-chevron" aria-hidden="true"></span></summary>
+          <div class="source-group__body">
+        <ol class="entries">
+          <li class="entry">
+            <h3>Lucide icons</h3>
+            <dl><dt>Creator</dt><dd>Lucide contributors</dd><dt>Source</dt><dd><a href="https://lucide.dev">lucide.dev</a> (version 0.577.0)</dd><dt>License</dt><dd>ISC License</dd><dt>Used for</dt><dd>All interface icons (search, phone, map pin, arrows and others)</dd></dl>
+            <details class="cite"><summary>APA citation</summary><p>Lucide Contributors. (n.d.). <em>Lucide</em> (Version 0.577.0) [Computer software]. https://lucide.dev</p></details>
+          </li>
+          <li class="entry">
+            <h3>Simple Icons</h3>
+            <dl><dt>Creator</dt><dd>Simple Icons collaborators</dd><dt>Source</dt><dd><a href="https://simpleicons.org">simpleicons.org</a></dd><dt>License</dt><dd>CC0 1.0 (icons); the logos remain trademarks of their owners</dd><dt>Used for</dt><dd>Facebook, Instagram and YouTube icons in the footer</dd></dl>
+            <details class="cite"><summary>APA citation</summary><p>Simple Icons Collaborators. (n.d.). <em>Simple Icons</em> [Computer software]. https://simpleicons.org</p></details>
+          </li>
+          <li class="entry">
+            <h3>Tailwind CSS</h3>
+            <dl><dt>Creator</dt><dd>Tailwind Labs</dd><dt>Source</dt><dd><a href="https://tailwindcss.com">tailwindcss.com</a> (version 3.4.17)</dd><dt>License</dt><dd>MIT License</dd><dt>Used for</dt><dd>Layout and styling utilities</dd></dl>
+            <details class="cite"><summary>APA citation</summary><p>Tailwind Labs. (n.d.). <em>Tailwind CSS</em> (Version 3.4.17) [Computer software]. https://tailwindcss.com</p></details>
+          </li>
+        </ol>
+          </div>
+        </details>
+      </section>
+
+      <section id="tools" class="source-section" aria-labelledby="tools-title">
+        <details class="source-group">
+          <summary><h2 id="tools-title">Tools</h2><span class="group-count">1 source</span><span class="group-chevron" aria-hidden="true"></span></summary>
+          <div class="source-group__body">
+        <ol class="entries">
+          <li class="entry">
+            <h3>Canva Code</h3>
+            <dl><dt>Creator</dt><dd>Canva</dd><dt>Source</dt><dd><a href="https://www.canva.com">canva.com</a></dd><dt>Used for</dt><dd>Building and hosting the first version of the page, and the request form’s data storage</dd></dl>
+            <details class="cite"><summary>APA citation</summary><p>Canva. (n.d.). <em>Canva Code</em> [Web application]. https://www.canva.com</p></details>
+          </li>
+        </ol>
+          </div>
+        </details>
+      </section>
+
+      <section id="fictional" class="source-section" aria-labelledby="fictional-title">
+        <details class="source-group">
+          <summary><h2 id="fictional-title">Fictional content</h2><span class="group-count">Note</span><span class="group-chevron" aria-hidden="true"></span></summary>
+          <div class="source-group__body">
+        <div class="callout">
+          <p style="margin-top:0"><strong>Magnolia Regional Medical Center is not a real hospital.</strong> The following were invented for this assignment and are not drawn from any source:</p>
+          <ul>
+            <li>The hospital name, address, phone numbers and email</li>
+            <li>Clinician names, profiles, languages and availability, the patient story, events, hours and the insurance list. The doctor photos show stock models, not real staff.</li>
+            <li>The campus map, which is an original illustration drawn in code</li>
+            <li>The services, hours and emergency department details, which are modeled on real hospitals but describe no real facility</li>
+          </ul>
+          <p>Magnolia Regional is not affiliated with Wellstar Health System. Health guidance on the page, such as calling 911 in an emergency, is general public advice.</p>
+        </div>
+          </div>
+        </details>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <p>Magnolia Regional Medical Center concept site · <a href="standalone.html">Back to the landing page</a></p>
+  </footer>
+  <a class="to-top" id="to-top" href="#page-title" hidden><span aria-hidden="true">↑</span> Back to top</a>
+  <script>
+    function initSourceGroups() {
+      const groups = [...document.querySelectorAll(".source-group")];
+      document.getElementById("expand-all").addEventListener("click", () => groups.forEach((group) => { group.open = true; }));
+      document.getElementById("collapse-all").addEventListener("click", () => groups.forEach((group) => { group.open = false; }));
+      function openTargetGroup() {
+        if (!location.hash) return;
+        const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+        const group = target && (target.querySelector(".source-group") || target.closest(".source-group"));
+        if (group && !group.open) { group.open = true; target.scrollIntoView(); }
+      }
+      window.addEventListener("hashchange", openTargetGroup);
+      openTargetGroup();
+    }
+    function initBackToTop() {
+      const button = document.getElementById("to-top");
+      const hero = document.querySelector(".hero");
+      if (!button || !hero || !("IntersectionObserver" in window)) return;
+      new IntersectionObserver(([entry]) => { button.hidden = entry.isIntersecting; }).observe(hero);
+    }
+    document.addEventListener("DOMContentLoaded", () => { initSourceGroups(); initBackToTop(); });
+  </script>
+</body>
+</html>

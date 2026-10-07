@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find a Doctor · Magnolia Regional</title>
+  <meta name="description" content="Find a doctor at Magnolia Regional Medical Center. Search by name, specialty or language.">
+  <meta name="theme-color" content="#18352d">
+  <link rel="icon" type="image/webp" href="magnolia-logo.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=Work+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js"></script>
+  <style>
+    :root{
+      --forest:#27483d;--deep:#18352d;--sage:#aebbaa;--mist:#e7eee4;--ivory:#fffaf1;--cream:#f7f0e2;--blush:#f4e2e1;--lav:#ece5f2;--plum:#8347ae;--ink:#303d37;--muted:#5c675f;--line:#d8d8ca;--danger:#9b2c3f;
+      --font-display:"DM Serif Display",Georgia,serif;--font-body:"Work Sans",system-ui,sans-serif;
+      --ease-out:cubic-bezier(.23,1,.32,1);--dur:220ms;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--ivory);color:var(--ink);font-family:var(--font-body);font-size:1rem;line-height:1.65}
+    a{color:var(--forest);text-underline-offset:4px}
+    :focus-visible{outline:3px solid var(--plum);outline-offset:3px;border-radius:.375rem}
+    .skip-link{position:fixed;left:1rem;top:-5rem;z-index:10;background:var(--deep);color:#fff;padding:.75rem 1rem;border-radius:.5rem}
+    .skip-link:focus{top:1rem}
+    .h-4{width:1rem;height:1rem}.h-5{width:1.25rem;height:1.25rem}
+
+    .emergency-bar{background:var(--deep);color:var(--ivory);font-size:.875rem;font-weight:500}
+    .emergency-bar p{max-width:72rem;margin:0 auto;padding:.5rem 1.25rem}
+    .emergency-bar a{color:var(--ivory);font-weight:700}
+    .site-bar{position:sticky;top:0;z-index:5;background:rgba(255,250,241,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+    .site-bar__inner{max-width:72rem;margin:0 auto;padding:.85rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    .brand{display:flex;align-items:center;gap:.75rem;text-decoration:none;color:var(--forest);font-weight:700;font-size:.95rem;line-height:1.2}
+    .brand img{width:2.75rem;height:2.75rem;border-radius:.75rem;object-fit:cover}
+    .back-link{display:inline-flex;align-items:center;gap:.4rem;min-height:2.75rem;padding:0 1.1rem;border:1px solid #9daf9f;border-radius:999px;font-weight:700;font-size:.9rem;text-decoration:none;color:var(--forest);background:var(--ivory);white-space:nowrap;transition:background-color var(--dur) ease,border-color var(--dur) ease}
+    .back-link:hover{background:var(--mist);border-color:var(--forest)}
+    .back-link:active{transform:scale(.97)}
+
+    .hero{max-width:72rem;margin:0 auto;padding:3.5rem 1.25rem 2rem}
+    h1,h2{font-family:var(--font-display);font-weight:400;color:var(--forest);margin:0}
+    h1{font-size:clamp(2.5rem,1.6rem + 3.4vw,4rem);line-height:1.05;letter-spacing:-.02em}
+    .lead{max-width:44rem;margin:1.25rem 0 0;font-size:1.125rem;line-height:1.7}
+    .note{display:flex;gap:.75rem;max-width:44rem;margin-top:1.5rem;padding:1rem 1.25rem;border-radius:1.25rem 1.25rem 1.25rem .375rem;background:var(--lav)}
+    .note p{margin:0}
+    .pill{display:inline-flex;align-items:center;gap:.4rem;margin-top:1.25rem;padding:.35rem .85rem;border-radius:999px;background:var(--cream);border:1px solid var(--line);font-size:.875rem;font-weight:600;color:var(--forest)}
+
+    .chip{display:inline-flex;align-items:center;gap:.45rem;min-height:2.75rem;padding:0 1rem;border-radius:999px;border:1px solid var(--line);background:#fff;font-weight:600;font-size:.9375rem;text-decoration:none;color:var(--forest);transition:background-color var(--dur) ease,border-color var(--dur) ease}
+    .chip:hover{background:var(--mist);border-color:var(--forest)}
+
+    @media(min-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+    /* Same green fill as the landing page cards */
+    .fill-card{position:relative;isolation:isolate;overflow:hidden;transition:transform var(--dur) var(--ease-out),box-shadow var(--dur) ease}
+    .fill-card:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(165deg,var(--forest),var(--deep));clip-path:inset(100% 0 0 0);transition:clip-path 480ms var(--ease-out)}
+    .fill-card .fill-ink,.fill-card .fill-muted,.fill-card .fill-chip{transition:color 280ms ease,background-color 280ms ease}
+    .fill-card:has(:focus-visible):before{clip-path:inset(0)}
+    .fill-card:has(:focus-visible) .fill-ink{color:var(--ivory)!important}
+    .fill-card:has(:focus-visible) .fill-muted{color:var(--mist)!important}
+    .fill-card:has(:focus-visible) .fill-chip{background:rgba(255,250,241,.14)!important;color:var(--ivory)!important}
+    .fill-card:has(:focus-visible) .button-primary{background:var(--ivory);color:var(--forest)}
+    .fill-card .focus-ring:focus-visible{outline-color:var(--blush)}
+    @media(hover:hover){
+      .fill-card:hover{transform:translateY(-3px);box-shadow:0 18px 35px rgba(39,72,61,.12)}
+      .fill-card:hover:before{clip-path:inset(0)}
+      .fill-card:hover .fill-ink{color:var(--ivory)!important}
+      .fill-card:hover .fill-muted{color:var(--mist)!important}
+      .fill-card:hover .fill-chip{background:rgba(255,250,241,.14)!important;color:var(--ivory)!important}
+      .fill-card:hover .button-primary{background:var(--ivory);color:var(--forest)}
+    }
+
+    footer{background:var(--deep);color:var(--mist);padding:2rem 1.25rem}
+    footer p{max-width:72rem;margin:0 auto;font-size:.9rem}
+    footer a{color:var(--ivory)}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before{transition:none!important}.fill-card:hover{transform:none}}
+  
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .tools{max-width:72rem;margin:0 auto;padding:0 1.25rem;display:flex;flex-wrap:wrap;align-items:end;gap:1rem 1.5rem}
+    .search{flex:1 1 20rem;max-width:28rem}
+    .search label{display:block;font-weight:700;font-size:.875rem;color:var(--forest);margin-bottom:.4rem}
+    .search input{width:100%;min-height:2.85rem;padding:.7rem 1rem;border:1px solid #9daf9f;border-radius:999px;background:#fff;font:inherit;color:var(--ink)}
+    .search input::placeholder{color:var(--muted);opacity:1}
+    .search input:hover{border-color:var(--forest)}
+    .search input:focus-visible{outline:none;border-color:var(--plum);box-shadow:0 0 0 3px rgba(131,71,174,.3)}
+    .toggle{display:inline-flex;align-items:center;gap:.6rem;min-height:2.85rem;font-weight:600;color:var(--forest);cursor:pointer}
+    .toggle input{width:1.25rem;height:1.25rem;accent-color:var(--forest);cursor:pointer}
+    .result-count{margin:0;color:var(--muted);font-size:.9375rem}
+    .doc-grid{max-width:72rem;margin:0 auto;padding:1.75rem 1.25rem 5rem;list-style:none;display:grid;gap:1.5rem}
+    @media(min-width:700px){.doc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(min-width:1024px){.doc-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    .doc-card{scroll-margin-top:6.5rem;display:flex;flex-direction:column;padding:.75rem;border:1px solid var(--line);border-radius:2rem 2rem 2rem .5rem;background:var(--ivory)}
+    .doc-card:nth-child(even){border-radius:2rem 2rem .5rem 2rem}
+    .doc-card[hidden]{display:none}
+    .doc-card:target{border-color:var(--plum);box-shadow:0 0 0 3px rgba(131,71,174,.25)}
+    .doc-card__photo{display:block;width:100%;aspect-ratio:4/5;height:auto;object-fit:cover;border-radius:1.5rem 1.5rem 1.5rem .375rem;background:var(--cream)}
+    .doc-card__body{display:flex;flex-direction:column;flex:1;padding:1rem .75rem .75rem}
+    .spec-tag{align-self:flex-start;padding:.3rem .75rem;border-radius:999px;font-size:.8125rem;font-weight:700}
+    .doc-card h2{font-size:1.65rem;line-height:1.15;margin-top:.75rem}
+    .status{display:inline-flex;align-items:center;gap:.4rem;margin-top:.5rem;font-size:.875rem;font-weight:700}
+    .status__dot{width:.5rem;height:.5rem;border-radius:999px;background:currentColor}
+    .status--open{color:#1f5c3f}
+    .status--waitlist{color:#7a5a00}
+    .doc-card p{margin:.6rem 0 0}
+    .doc-card__langs{font-size:.9375rem}
+    .doc-card__actions{display:flex;flex-direction:column;align-items:flex-start;gap:.25rem;margin-top:auto;padding-top:1.1rem}
+    .button-primary{display:inline-flex;align-items:center;gap:.5rem;min-height:2.85rem;padding:.72rem 1.25rem;border-radius:999px;background:var(--forest);color:#fff;font-weight:700;font-size:.9375rem;text-decoration:none;transition:background-color var(--dur) ease,transform 160ms var(--ease-out)}
+    .button-primary:hover{background:var(--deep);transform:translateY(-1px)}
+    .button-primary:active{transform:scale(.97)}
+    .text-link{display:inline-flex;align-items:center;gap:.4rem;min-height:2.75rem;color:var(--plum);font-weight:700;text-decoration:underline;text-underline-offset:5px}
+    .text-link:hover{text-decoration-thickness:2px}
+    .empty{max-width:72rem;margin:1.5rem auto 0;padding:0 1.25rem}
+    .empty p{margin:0;padding:1.25rem;border-radius:1.25rem;background:var(--mist)}
+    .fill-card:has(:focus-visible) .status,.fill-card:has(:focus-visible) .text-link{color:var(--blush)!important}
+    @media(hover:hover){.fill-card:hover .status,.fill-card:hover .text-link{color:var(--blush)!important}}
+  
+    .back-link__extra{display:inline}
+    @media(max-width:400px){
+      .site-bar__inner{padding:.75rem 1rem;gap:.5rem}
+      .brand{font-size:.85rem;gap:.55rem}
+      .brand img{width:2.4rem;height:2.4rem}
+      .back-link{padding:0 .85rem}
+      .back-link__extra{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+    }
+      .notes-pill{position:fixed;left:1rem;bottom:1rem;z-index:30;display:inline-flex;align-items:center;gap:.45rem;min-height:2.75rem;padding:0 1rem;border:1px solid #9daf9f;border-radius:999px;background:var(--ivory);color:var(--forest);font-weight:700;font-size:.875rem;text-decoration:none;box-shadow:0 10px 24px -12px rgba(24,53,45,.55);transition:background-color var(--dur) ease,border-color var(--dur) ease}
+    .notes-pill:hover{background:var(--mist);border-color:var(--forest)}
+    .notes-pill:active{transform:scale(.97)}
+    @media print{.notes-pill{display:none}}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#doctor-list">Skip to doctors</a>
+  <div class="emergency-bar"><p>Life-threatening emergency? Call <a href="tel:911">911</a>. Our emergency department is open 24/7.</p></div>
+  <header class="site-bar">
+    <div class="site-bar__inner">
+      <a class="brand" href="standalone.html"><img src="magnolia-logo.webp" alt="" width="44" height="44">Magnolia Regional<br>Medical Center</a>
+      <a class="back-link focus-ring" href="standalone.html"><span aria-hidden="true">←</span> Back<span class="back-link__extra"> to the site</span></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <h1 id="page-title">Find a doctor</h1>
+      <p class="lead">Meet the clinicians who lead care at Magnolia Regional. Search by name, specialty or language, then request an appointment.</p>
+      <div class="note"><i data-lucide="info" class="h-5 w-5" aria-hidden="true" style="flex:none;color:var(--plum);margin-top:.15rem"></i><p>Not sure who to see? <a href="standalone.html?reason=Finding%20care%20or%20a%20service#contact">Send us a request</a> and we will match you with the right clinician.</p></div>
+      <span class="pill">Sample profiles. These clinicians are fictional.</span>
+    </section>
+
+    <div class="tools" role="search">
+      <div class="search">
+        <label for="doctor-search">Search doctors</label>
+        <input id="doctor-search" type="search" placeholder="Try “heart”, “Spanish” or “Reyes”" autocomplete="off" aria-describedby="result-count">
+      </div>
+      <label class="toggle"><input id="accepting-only" type="checkbox"> Accepting new patients only</label>
+      <p id="result-count" class="result-count" role="status" aria-live="polite">Showing all 9 doctors</p>
+    </div>
+    <div class="empty" id="doctor-empty" hidden><p>No doctors match that search. Try a different word, or <a href="standalone.html?reason=Finding%20care%20or%20a%20service#contact">ask us to match you</a>.</p></div>
+
+    <ul class="doc-grid" id="doctor-list">
+      <li class="doc-card fill-card" id="okafor" data-search="dr. amara okafor family medicine primary care family medicine general practitioner gp check-up english igbo" data-accepting="true">
+        <img class="doc-card__photo" src="https://images.unsplash.com/photo-1678695972687-033fa0bdbac9?auto=format&amp;fit=crop&amp;crop=faces&amp;w=600&amp;h=750&amp;q=75" alt="Portrait of Dr. Amara Okafor smiling in a white coat with a stethoscope." width="600" height="750" loading="lazy">
+        <div class="doc-card__body">
+          <span class="spec-tag fill-chip" style="background:#ece5f2;color:#8347ae">Family medicine</span>
+          <h2 class="fill-ink">Dr. Amara Okafor</h2>
+          <span class="status status--open"><span class="status__dot" aria-hidden="true"></span>Accepting new patients</span>
+          <p class="fill-muted">Primary care for adults and children, with a focus on preventive screenings and long-term conditions like diabetes.</p>
+          <p class="doc-card__langs fill-muted"><strong class="fill-ink">Languages:</strong> English, Igbo</p>
+          <div class="doc-card__actions">
+            <a class="button-primary focus-ring" href="standalone.html?reason=Requesting%20an%20appointment#contact">Request an appointment<span class="sr-only"> with Dr. Amara Okafor</span></a>
+            <a class="text-link focus-ring" href="standalone.html#find-care">About primary care <i data-lucide="arrow-right" class="h-4 w-4" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </li>
+      <li class="doc-card fill-card" id="halim" data-search="dr. grace halim emergency medicine emergency er urgent trauma english indonesian" data-accepting="false">
+        <img class="doc-card__photo" src="https://images.unsplash.com/photo-1757125736482-328a3cdd9743?auto=format&amp;fit=crop&amp;crop=faces&amp;w=600&amp;h=750&amp;q=75" alt="Portrait of Dr. Grace Halim smiling in a white coat outdoors." width="600" height="750" loading="lazy">
+        <div class="doc-card__body">
+          <span class="spec-tag fill-chip" style="background:#f4e2e1;color:#9b2c3f">Emergency medicine</span>
+          <h2 class="fill-ink">Dr. Grace Halim</h2>
+          <span class="status status--waitlist"><span class="status__dot" aria-hidden="true"></span>Waitlist for new patients</span>
+          <p class="fill-muted">Leads the emergency department team and teaches staff how to care for serious injuries and sudden illness.</p>
+          <p class="doc-card__langs fill-muted"><strong class="fill-ink">Languages:</strong> English, Indonesian</p>
+          <div class="doc-card__actions">
+            <a class="button-primary focus-ring" href="standalone.html?reason=Requesting%20an%20appointment#contact">Request an appointment<span class="sr-only"> with Dr. Grace Halim</span></a>
+            <a class="text-link focus-ring" href="standalone.html#find-care">About emergency care <i data-lucide="arrow-right" class="h-4 w-4" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </li>
+      <li class="doc-card fill-card" id="reyes" data-search="dr. daniel reyes cardiology cardiology heart cardiac blood pressure vascular english spanish" data-accepting="true">
+        <img class="doc-card__photo" src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&amp;fit=crop&amp;crop=faces&amp;w=600&amp;h=750&amp;q=75" alt="Portrait of Dr. Daniel Reyes smiling in blue scrubs with a stethoscope." width="600" height="750" loading="lazy">
+        <div class="doc-card__body">
+          <span class="spec-tag fill-chip" style="background:#f4e2e1;color:#9b2c3f">Cardiology</span>
+          <h2 class="fill-ink">Dr. Daniel Reyes</h2>
+          <span class="status status--open"><span class="status__dot" aria-hidden="true"></span>Accepting new patients</span>
+          <p class="fill-muted">Treats high blood pressure, heart rhythm problems and heart failure, and runs the heart health clinic.</p>
+          <p class="doc-card__langs fill-muted"><strong class="fill-ink">Languages:</strong> English, Spanish</p>
+          <div class="doc-card__actions">
+            <a class="button-primary focus-ring" href="standalone.html?reason=Requesting%20an%20appointment#contact">Request an appointment<span class="sr-only"> with Dr. Daniel Reyes</span></a>
+            <a class="text-link focus-ring" href="specialties.html#heart">About heart and vascular care <i data-lucide="arrow-right" class="h-4 w-4" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </li>
+      <li class="doc-card fill-card" id="haddad" data-search="dr. leila haddad neurology neurology brain stroke migraine headache seizure epilepsy memory english arabic french" data-accepting="true">
+        <img class="doc-card__photo" src="https://images.unsplash.com/photo-1706565029539-d09af5896340?auto=format&amp;fit=crop&amp;crop=faces&amp;w=600&amp;h=750&amp;q=75" alt="Portrait of Dr. Leila Haddad in a white coat." width="600" height="750" loading="lazy">
+        <div class="doc-card__body">
+          <span class="spec-tag fill-chip" style="background:#ece5f2;color:#8347ae">Neurology</span>
+          <h2 class="fill-ink">Dr. Leila Haddad</h2>
+          <span class="status status--open"><span class="status__dot" aria-hidden="true"></span>Accepting new patients</span>
+          <p class="fill-muted">Cares for patients with migraines, epilepsy and memory changes, and leads stroke follow-up care.</p>
+          <p class="doc-card__langs fill-muted"><strong class="fill-ink">Languages:</strong> English, Arabic, French</p>
+          <div class="doc-card__actions">
+            <a class="button-primary focus-ring" href="standalone.html?reason=Requesting%20an%20appointment#contact">Request an appointment<span class="sr-only"> with Dr. Leila Haddad</span></a>
+            <a class="text-link focus-ring" href="specialties.html#neurology">About neurology <i data-lucide="arrow-right" class="h-4 w-4" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </li>
+      <li class="doc-card fill-card" id="owusu" data-search="dr. samuel owusu oncology oncology cancer chemotherapy tumor english twi" data-accepting="false">
+        <img class="doc-card__photo" src="https://images.unsplash.com/photo-1666887360369-1901f341fdad?auto=format&amp;fit=crop&amp;crop=faces&amp;w=600&amp;h=750&amp;q=75" alt="Portrait of Dr. Samuel Owusu in a white coat with a stethoscope." width="600" height="750" loading="lazy">
+        <div class="doc-card__body">
+          <span class="spec-tag fill-chip" style="background:#ece5f2;color:#8347ae">Oncology</span>
+          <h2 class="fill-ink">Dr. Samuel Owusu</h2>
+          <span class="status status--waitlist"><span class="status__dot" aria-hidden="true"></span>Waitlist for new patients</span>
+          <p class="fill-muted">Leads the cancer care team, with a focus on chemotherapy and helping families understand a new diagnosis.</p>
+          <p class="doc-card__langs fill-muted"><strong class="fill-ink">Languages:</strong> English, Twi</p>
+          <div class="doc-card__actions">
+            <a class="button-primary focus-ring" href="standalone.html?reason=Requesting%20an%20appointment#contact">Request an appointment<span class="sr-only"> with Dr. Samuel Owusu</span></a>
+            <a class="text-link focus-ring" href="specialties.html#cancer">About cancer care <i data-lucide="arrow-right" class="h-4 w-4" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </li>
+      <li class="doc-card fill-card" id="mehta" data-search="dr. arjun mehta general surgery surgery surgeon general surgery hernia gallbladder operation english hindi gujarati" data-accepting="true">
+        <img class="doc-card__photo" src="https://images.unsplash.com/photo-1637059824899-a441006a6875?auto=format&amp;fit=crop&amp;crop=faces&amp;w=600&amp;h=750&amp;q=75" alt="Portrait of Dr. Arjun Mehta with arms crossed and a stethoscope around his neck." width="600" height="750" loading="lazy">
+        <div class="doc-card__body">
+          <span class="spec-tag fill-chip" style="background:#e7eee4;color:#27483d">General surgery</span>
+          <h2 class="fill-ink">Dr. Arjun Mehta</h2>
+          <span class="status status--open"><span class="status__dot" aria-hidden="true"></span>Accepting new patients</span>
+          <p class="fill-muted">Performs hernia, gallbladder and same-day procedures, and meets every patient before surgery to plan recovery.</p>
+          <p class="doc-card__langs fill-muted"><strong class="fill-ink">Languages:</strong> English, Hindi, Gujarati</p>
+          <div class="doc-card__actions">
+            <a class="button-primary focus-ring" href="standalone.html?reason=Requesting%20an%20appointment#contact">Request an appointment<span class="sr-only"> with Dr. Arjun Mehta</span></a>
+            <a class="text-link focus-ring" href="specialties.html#surgery">About surgery <i data-lucide="arrow-right" class="h-4 w-4" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </li>
+      <li class="doc-card fill-card" id="marin" data-search="dr. sofia marín obstetrics and gynecology obstetrics gynecology obgyn women maternity pregnancy prenatal birth english spanish" data-accepting="true">
+        <img class="doc-card__photo" src="https://images.unsplash.com/photo-1736289173074-df6009da27c9?auto=format&amp;fit=crop&amp;crop=faces&amp;w=600&amp;h=750&amp;q=75" alt="Portrait of Dr. Sofia Marín in a white coat with arms crossed." width="600" height="750" loading="lazy">
+        <div class="doc-card__body">
+          <span class="spec-tag fill-chip" style="background:#e7eee4;color:#27483d">Obstetrics and gynecology</span>
+          <h2 class="fill-ink">Dr. Sofia Marín</h2>
+          <span class="status status--open"><span class="status__dot" aria-hidden="true"></span>Accepting new patients</span>
+          <p class="fill-muted">Cares for patients before, during and after pregnancy, and offers routine women's health visits.</p>
+          <p class="doc-card__langs fill-muted"><strong class="fill-ink">Languages:</strong> English, Spanish</p>
+          <div class="doc-card__actions">
+            <a class="button-primary focus-ring" href="standalone.html?reason=Requesting%20an%20appointment#contact">Request an appointment<span class="sr-only"> with Dr. Sofia Marín</span></a>
+            <a class="text-link focus-ring" href="specialties.html#maternity">About women's health and maternity <i data-lucide="arrow-right" class="h-4 w-4" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </li>
+      <li class="doc-card fill-card" id="delgado" data-search="dr. rosa delgado pediatrics pediatrics pediatrician children kids teens baby vaccines english spanish" data-accepting="true">
+        <img class="doc-card__photo" src="https://images.unsplash.com/photo-1623854767648-e7bb8009f0db?auto=format&amp;fit=crop&amp;crop=faces&amp;w=600&amp;h=750&amp;q=75" alt="Portrait of Dr. Rosa Delgado smiling outdoors in a white coat with a stethoscope." width="600" height="750" loading="lazy">
+        <div class="doc-card__body">
+          <span class="spec-tag fill-chip" style="background:#f7f0e2;color:#27483d">Pediatrics</span>
+          <h2 class="fill-ink">Dr. Rosa Delgado</h2>
+          <span class="status status--open"><span class="status__dot" aria-hidden="true"></span>Accepting new patients</span>
+          <p class="fill-muted">Sees babies, children and teens for check-ups, vaccines and sick visits, and helps families with development questions.</p>
+          <p class="doc-card__langs fill-muted"><strong class="fill-ink">Languages:</strong> English, Spanish</p>
+          <div class="doc-card__actions">
+            <a class="button-primary focus-ring" href="standalone.html?reason=Requesting%20an%20appointment#contact">Request an appointment<span class="sr-only"> with Dr. Rosa Delgado</span></a>
+            <a class="text-link focus-ring" href="specialties.html#pediatrics">About pediatrics <i data-lucide="arrow-right" class="h-4 w-4" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </li>
+      <li class="doc-card fill-card" id="silva" data-search="dr. mateo silva rehabilitation medicine rehabilitation rehab physical therapy recovery stroke injury english portuguese" data-accepting="false">
+        <img class="doc-card__photo" src="https://images.unsplash.com/photo-1729162128021-f37dca3ff30d?auto=format&amp;fit=crop&amp;crop=faces&amp;w=600&amp;h=750&amp;q=75" alt="Portrait of Dr. Mateo Silva smiling in a white lab coat." width="600" height="750" loading="lazy">
+        <div class="doc-card__body">
+          <span class="spec-tag fill-chip" style="background:#e7eee4;color:#27483d">Rehabilitation medicine</span>
+          <h2 class="fill-ink">Dr. Mateo Silva</h2>
+          <span class="status status--waitlist"><span class="status__dot" aria-hidden="true"></span>Waitlist for new patients</span>
+          <p class="fill-muted">Builds recovery plans after surgery, injury or stroke, working with physical, occupational and speech therapists.</p>
+          <p class="doc-card__langs fill-muted"><strong class="fill-ink">Languages:</strong> English, Portuguese</p>
+          <div class="doc-card__actions">
+            <a class="button-primary focus-ring" href="standalone.html?reason=Requesting%20an%20appointment#contact">Request an appointment<span class="sr-only"> with Dr. Mateo Silva</span></a>
+            <a class="text-link focus-ring" href="specialties.html#rehabilitation">About rehabilitation <i data-lucide="arrow-right" class="h-4 w-4" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </main>
+
+  <a class="notes-pill" href="sources.html"><i data-lucide="notebook-text" class="h-4 w-4" aria-hidden="true"></i>Sources and notes</a>
+  <footer>
+    <p>Magnolia Regional Medical Center concept site · <a href="standalone.html">Back to the landing page</a> · <a href="specialties.html">Specialty care</a> · <a href="sources.html">Sources and notes</a></p>
+  </footer>
+  <script>
+    function initDoctorFilter() {
+      const search = document.getElementById("doctor-search");
+      const acceptingOnly = document.getElementById("accepting-only");
+      const cards = [...document.querySelectorAll("#doctor-list [data-search]")];
+      const count = document.getElementById("result-count");
+      const empty = document.getElementById("doctor-empty");
+      function apply() {
+        const words = search.value.trim().toLowerCase().split(/\s+/).filter(Boolean);
+        const visible = cards.filter((card) => {
+          const keywords = card.dataset.search.split(/\s+/);
+          const matchesWords = words.every((word) => keywords.some((keyword) => keyword.startsWith(word)));
+          const matchesAccepting = !acceptingOnly.checked || card.dataset.accepting === "true";
+          return matchesWords && matchesAccepting;
+        });
+        cards.forEach((card) => { card.hidden = !visible.includes(card); });
+        empty.hidden = visible.length !== 0;
+        count.textContent = visible.length === cards.length ? `Showing all ${cards.length} doctors` : `Showing ${visible.length} of ${cards.length} doctors`;
+      }
+      search.addEventListener("input", apply);
+      acceptingOnly.addEventListener("change", apply);
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+      if (window.lucide) lucide.createIcons(); else console.error("Lucide icons failed to load");
+      initDoctorFilter();
+    });
+  </script>
+</body>
+</html>
