@@ -1,6 +1,6 @@
 # Magnolia Regional Medical Center
 
-A website for a fictional regional hospital in Georgia, designed and built by **Ashia Ware** for **Web Graphics** (October 2026).
+A website for a fictional regional hospital in Georgia, designed and built by **Ashia Ware** for **CIST 2531 Web Graphics II** (October 2026).
 
 The site is built around a magnolia brand with a plant-inspired color palette. It puts emergency guidance first and gives clear paths to care, specialists and doctors.
 
