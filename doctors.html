@@ -310,6 +310,12 @@
       }
       search.addEventListener("input", apply);
       acceptingOnly.addEventListener("change", apply);
+      // A search from the landing page arrives as ?q=heart
+      const query = new URLSearchParams(window.location.search).get("q");
+      if (query) {
+        search.value = query.slice(0, 80);
+        apply();
+      }
     }
     document.addEventListener("DOMContentLoaded", () => {
       if (window.lucide) lucide.createIcons(); else console.error("Lucide icons failed to load");
